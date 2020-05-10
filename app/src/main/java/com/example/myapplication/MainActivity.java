@@ -28,10 +28,10 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button listen,send, listDevices;
+    Button listen,send, showDevices;
     ListView listView;
     TextView msg_box,status;
-    EditText writeMsg;
+    EditText customtxt;
     Button one,zero,two,three,four,five,six,seven,eight,nine;
 
     BluetoothAdapter bluetoothAdapter;
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void implementListeners() {
 
-        listDevices.setOnClickListener(new View.OnClickListener() {
+        showDevices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Set<BluetoothDevice> bt=bluetoothAdapter.getBondedDevices();
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String string= String.valueOf(writeMsg.getText());
+                String string= String.valueOf(customtxt.getText());
                 sendReceive.write(string.getBytes());
             }
         });
@@ -231,10 +231,10 @@ public class MainActivity extends AppCompatActivity {
         listen=(Button) findViewById(R.id.listen);
         send=(Button) findViewById(R.id.send);
         listView=(ListView) findViewById(R.id.listview);
-        msg_box =(TextView) findViewById(R.id.msg);
+        msg_box =(TextView) findViewById(R.id.Message);
         status=(TextView) findViewById(R.id.status);
-        writeMsg=(EditText) findViewById(R.id.writemsg);
-        listDevices=(Button) findViewById(R.id.listDevices);
+        customtxt=(EditText) findViewById(R.id.customtxt);
+        showDevices=(Button) findViewById(R.id.showDevices);
         zero =(Button) findViewById(R.id.button0);
         one= (Button) findViewById(R.id.button1);
         two= (Button) findViewById(R.id.button2);
