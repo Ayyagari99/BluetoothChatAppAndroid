@@ -7,8 +7,8 @@ Tapping on the number sends the number directly. A custom text message can also 
 
  # In Action:
  
-![Main_page](d1r.png)
-![Main_page](d0r.png)
+![Device1](d1r.png)
+![Device0](d0r.png)
 
 This is the main page in the app
 
