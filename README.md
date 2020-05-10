@@ -5,12 +5,9 @@ The other device listens for incoming connection request and then both the devic
 Tapping on the number sends the number directly. A custom text message can also be sent by typing in the EditText and then tapping the send custom message button.
 
  # In Action:
- 
-![Device1](d1r.jpeg)
-![Device0](d0r.jpeg)
-
 This is the main page in the app
 
+![Device1](d1r.jpeg)
 
 # Authors:
 Srinidhi Ayyagari
