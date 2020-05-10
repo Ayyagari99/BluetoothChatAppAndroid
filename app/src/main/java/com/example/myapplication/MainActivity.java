@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
     Button listen,send, showDevices;
     ListView listView;
-    TextView msg_box,status;
+    TextView message,status;
     EditText customtxt;
     Button one,zero,two,three,four,five,six,seven,eight,nine;
 
-    BluetoothAdapter bluetoothAdapter;
+    BluetoothAdapter mybtadap;
     BluetoothDevice[] btArray;
 
     SendReceive sendReceive;
@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewByIdes();
-        bluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
+        findViewByIds();
+        mybtadap=BluetoothAdapter.getDefaultAdapter();
 
-        if(!bluetoothAdapter.isEnabled())
+        if(!mybtadap.isEnabled())
         {
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableIntent,REQUEST_ENABLE_BLUETOOTH);
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         showDevices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Set<BluetoothDevice> bt=bluetoothAdapter.getBondedDevices();
+                Set<BluetoothDevice> bt=mybtadap.getBondedDevices();
                 String[] strings=new String[bt.size()];
                 btArray=new BluetoothDevice[bt.size()];
                 int index=0;
@@ -220,18 +220,18 @@ public class MainActivity extends AppCompatActivity {
                 case STATE_MESSAGE_RECEIVED:
                     byte[] readBuff= (byte[]) msg.obj;
                     String tempMsg=new String(readBuff,0,msg.arg1);
-                    msg_box.setText(tempMsg);
+                    message.setText(tempMsg);
                     break;
             }
             return true;
         }
     });
 
-    private void findViewByIdes() {
+    private void findViewByIds() {
         listen=(Button) findViewById(R.id.listen);
         send=(Button) findViewById(R.id.send);
         listView=(ListView) findViewById(R.id.listview);
-        msg_box =(TextView) findViewById(R.id.Message);
+        message =(TextView) findViewById(R.id.Message);
         status=(TextView) findViewById(R.id.status);
         customtxt=(EditText) findViewById(R.id.customtxt);
         showDevices=(Button) findViewById(R.id.showDevices);
@@ -248,12 +248,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class ServerClass extends Thread
-    {
+      {
         private BluetoothServerSocket serverSocket;
 
         public ServerClass(){
             try {
-                serverSocket=bluetoothAdapter.listenUsingRfcommWithServiceRecord(APP_NAME,MY_UUID);
+                serverSocket=mybtadap.listenUsingRfcommWithServiceRecord(APP_NAME,MY_UUID);
             } catch (IOException e) {
                 e.printStackTrace();
             }
