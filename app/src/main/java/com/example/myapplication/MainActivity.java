@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                     status.setText("Connected");
                     break;
                 case STATE_CANT_CONNECT:
-                    status.setText("Connection Failed");
+                    status.setText("Can't Connect ");
                     break;
                 case STATE_MESSAGE_RECEIVED:
                     byte[] readBuff= (byte[]) msg.obj;
