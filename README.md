@@ -1,4 +1,4 @@
-# BluetoothChatAppAndroid
+# Bluetooth Chat App Android
 A simple bluetooth chat application developed on Android Studio. 
 On start up, the app requests permission to switch on bluetooth.
 One device lists all the once-paired devices. And connects to a particular device from the list. 
