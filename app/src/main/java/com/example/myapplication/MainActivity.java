@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 //jinga!
-
+//yayy!
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
