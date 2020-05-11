@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:backgroundTint="#2196F3"
-    tools:context="com.example.myapplication.MainActivity"> //solved .MainActivity prob here
+    tools:context="com.example.myapplication.MainActivity">  
 
 
     <Button
